@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "BinarySearch.hpp"
 #include "BinaryNode.hpp"
 
@@ -39,5 +40,33 @@ int main(int argc, const char * argv[]) {
     b.preOrderPrint();
     b.inOrderPrint();
     b.printHeight();
+    
+    
+    
+    
+    string fileName = "/Users/Sergey/Documents/Developer/BinarySearchTree/BinarySearchTree/File.txt";
+    
+    BinarySearchTree<int> c;
+    
+    ifstream in(fileName.c_str(), ios_base::in);
+    if (!in)
+    {
+        cout << "Can not open the file. Press enter to exit.\n";
+        cin.get();
+        return 1;
+    }
+     int current;
+    while ( in >> current)
+    {
+        c.insert(current);
+    }
+
+    c.postOrderPrint();
+    c.preOrderPrint();
+    c.inOrderPrint();
+    c.printHeight();
+    
+    
+    
     return 0;
 }
